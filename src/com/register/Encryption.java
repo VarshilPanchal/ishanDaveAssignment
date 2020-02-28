@@ -1,3 +1,4 @@
+package com.register;
 import java.security.MessageDigest;
 	public class Encryption {
 		public String encrypt(String password) {
@@ -17,9 +18,6 @@ import java.security.MessageDigest;
 					sb.append(Long.toString(encodedPassword[i] & 0xff, 16));
 					
 				}
-//				System.out.println("Password:"+password);
-				//System.out.println("Encrypted:"+sb.toString());
-//				return sb.toString();
 			}
 			catch(Exception e){
 				e.printStackTrace();

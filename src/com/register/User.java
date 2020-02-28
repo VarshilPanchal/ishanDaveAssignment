@@ -1,3 +1,4 @@
+package com.register;
 import java.io.Serializable;
 
 public class User implements Serializable {

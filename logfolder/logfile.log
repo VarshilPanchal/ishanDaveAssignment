@@ -1,0 +1,2 @@
+DEBUG   2020-02-28 09:33:36,561 [http-nio-8080-exec-3] com.register.UserServlet  - Registered succesfully
+DEBUG   2020-02-28 09:36:51,658 [http-nio-8080-exec-3] com.register.UserServlet  - Registered succesfully
