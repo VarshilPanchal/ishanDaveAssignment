@@ -16,7 +16,7 @@
 	<form action="./register" method="post">
 		<table style="with: 50%">
 			<tr>
-				<td>${Message}</td>
+				<td>${ErrorMessage}</td>
 			</tr>
 			<tr>
 				<td>${fusername}</td>

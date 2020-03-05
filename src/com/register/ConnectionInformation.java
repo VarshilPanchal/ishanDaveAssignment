@@ -1,6 +1,6 @@
 package com.register;
 
-public class connectionInformation 
+public class ConnectionInformation 
 {
 	protected final static String driverClass = "com.mysql.cj.jdbc.Driver";
 	protected final static String connectionUrl = "jdbc:mysql://localhost:3306";

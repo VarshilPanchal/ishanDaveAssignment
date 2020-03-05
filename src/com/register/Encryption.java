@@ -1,8 +1,11 @@
 package com.register;
 import java.security.MessageDigest;
+
+//Encrypting the password
 	public class Encryption {
 		public String encrypt(String password) {
 			StringBuilder sb=new StringBuilder();
+			//SHA algorithm to encrypt the password
 			String algorithm="SHA";
 			byte plaintext[]=password.getBytes();
 			try {
