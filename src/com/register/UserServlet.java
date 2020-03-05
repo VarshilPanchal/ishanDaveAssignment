@@ -1,6 +1,10 @@
 package com.register;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import org.apache.log4j.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -72,4 +76,37 @@ public class UserServlet extends HttpServlet
         
 		}
     }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		String[] planguage = request.getParameter("language").split("_");
+		String language = planguage[0];
+		String country = planguage[1];
+		Locale locale = new Locale(language, country);
+		request.setAttribute("country", locale.getDisplayCountry());
+
+		//
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		request.setAttribute("fnumber", numberFormat.format(1234567));
+
+		//
+		ResourceBundle resourceBundle = ResourceBundle.getBundle("resources.conten", locale);
+		request.setAttribute("fstring", resourceBundle.getString("message"));
+		request.setAttribute("fform", resourceBundle.getString("form"));
+		request.setAttribute("fusername", resourceBundle.getString("username"));
+		request.setAttribute("fpassword", resourceBundle.getString("password"));
+		request.setAttribute("fsave", resourceBundle.getString("save"));
+		
+				
+		request.getRequestDispatcher("userregister.jsp").forward(request, response);
+	}
+
+//    <h3>Locale of ${country }</h3>
+//	Format number: ${fnumber }
+//	<br> Format String: ${fstring}
+//	<br> Format String: ${fform}
+    
 }
+

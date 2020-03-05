@@ -8,16 +8,16 @@ import java.sql.SQLException;
 
 public class UserDAO {
 	int result = 0;
+	ConnectionUtils conUtils=new ConnectionUtils();
     public int registerUser(User user) throws ClassNotFoundException {
               
 
         Class.forName(connectionInformation.driverClass);
 
-        try (Connection connection = DriverManager
-            .getConnection(connectionInformation.connectionUrl+"/"+connectionInformation.databaseName, connectionInformation.username, connectionInformation.password);
-
-          
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery.insertQuery)) {
+        try {
+        	
+        	Connection connection = conUtils.getCon();
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery.insertQuery);
 
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
@@ -32,8 +32,9 @@ public class UserDAO {
         }
         return result;
     }
+}
    
     	
-    }
+  
 
 
